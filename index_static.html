@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Гимназия №1 им. Г.А. Федорюка — официальный сайт. Образование, новости, преподаватели и ученики." />
-  <title>Гимназия №1 им. Г.А. Федорюка</title>
+  <meta name="description" content="Официальный сайт МОУ «Гимназия №1 им. Г.А. Федорюка»: новости и проекты, коллектив и условия обучения, горячие линии, приём в гимназию, сервисы «Госуслуги Моя школа»." />
+  <meta name="keywords" content="гимназия, школа, образование, Челябинск, приём в первый класс, Госуслуги Моя школа, Движение Первых, новости школы" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="МОУ Гимназия №1 им. Г.А. Федорюка" />
+  <meta property="og:title" content="Гимназия №1 им. Г.А. Федорюка — открываем дорогу к знаниям" />
+  <meta property="og:description" content="Современное образование, сильные педагоги и забота о каждом ученике. Новости, проекты, контакты и сервисы гимназии." />
+  <meta property="og:image" content="/img/hero.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="theme-color" content="#4d4cff" />
+  <link rel="icon" type="image/png" href="/img/logo.png" />
+  <title>Гимназия №1 им. Г.А. Федорюка — официальный сайт</title>
   <link rel="preload" href="/src/assets/fonts/Inter_1.ttf" as="font" type="font/ttf" crossorigin />
   <style>
     @font-face {
@@ -21,24 +30,76 @@
       font-display: swap;
       src: url("/src/assets/fonts/Roboto-Regular_1.ttf") format("truetype");
     }
+    /* ============================================================
+       Дизайн-токены сайта гимназии
+       Палитра и формы восстановлены из макета-прототипа (Pixso).
+       ============================================================ */
     :root {
-      --ink: #374957;
-      --muted: #6b7a88;
-      --accent: #4d4cff;
-      --bg-soft: #f1f5f9;
+      /* Цвета */
+      --ink: #374957;            /* основной текст / тёмные поверхности */
+      --ink-deep: #17252f;       /* самый тёмный (подвал, градиенты) */
+      --muted: #6b7a88;          /* вторичный текст */
+      --accent: #4d4cff;         /* фирменный синий — кнопки, ссылки */
+      --accent-dark: #3a38d6;    /* accent hover */
+      --accent-soft: rgba(77, 76, 255, .08);
+      --gold: #ffd700;           /* акцент «Движения Первых» */
+      --danger: #d52c27;         /* госуслуги (красный) */
+      --info: #227cc1;           /* госуслуги (синий) */
+      --bg: #ffffff;
+      --bg-soft: #f1f5f9;        /* светло-серые панели */
+      --bg-softer: #e8eef4;
       --border: #e2e8f0;
+
+      /* Типографика */
+      --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --fs-xs: 13px;
+      --fs-sm: 15px;
+      --fs-base: 16px;
+      --fs-md: 18px;
+      --fs-lg: 22px;
+      --fs-xl: 26px;
+      --fs-2xl: 32px;
+      --fs-3xl: clamp(28px, 4vw, 44px);
+
+      /* Радиусы и тени */
       --radius: 24px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 4px 14px rgba(55, 73, 87, .06);
+      --shadow-md: 0 8px 30px rgba(55, 73, 87, .18);
+      --shadow-lg: 0 20px 50px rgba(55, 73, 87, .2);
+
+      /* Сетка и отступы */
+      --container: 1240px;
+      --gap: 20px;
+      --section-y: 32px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font);
+      font-size: var(--fs-base);
       color: var(--ink);
-      background: #fff;
+      background: var(--bg);
       line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    a { color: inherit; text-decoration: none; }
+    a { color: inherit; text-decoration: none; transition: color .2s ease; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
     img { display: block; max-width: 100%; }
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    /* Видимый скролл-бар для горизонтального меню */
+    .nav__inner::-webkit-scrollbar { height: 4px; }
+    .nav__inner::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    /* Единая анимация появления секций */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
+    }
 
     /* ---------- Header ---------- */
     .topbar { background: var(--bg-soft); }
@@ -48,33 +109,49 @@
     }
     .brand { display: flex; align-items: center; gap: 16px; }
     .brand img { width: 80px; height: 82px; object-fit: contain; }
-    .brand__name { font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+    .brand__name { font-size: var(--fs-md); font-weight: 700; letter-spacing: .02em; }
     .topbar__contacts { margin-left: auto; display: flex; align-items: center; gap: 20px; }
-    .topbar__mail { font-size: 15px; font-weight: 500; }
+    .topbar__mail { font-size: var(--fs-sm); font-weight: 500; }
+    .topbar__mail:hover { color: var(--accent); }
     .socials { display: flex; gap: 12px; }
     .socials a {
       width: 42px; height: 42px; border-radius: 50%;
       display: grid; place-items: center;
       background: #fff; border: 1px solid var(--border);
-      transition: background .2s;
+      transition: background .2s, transform .2s;
     }
-    .socials a:hover { background: #e2e8f0; }
-    .socials svg { width: 22px; height: 22px; fill: var(--ink); }
+    .socials a:hover { background: var(--accent); transform: translateY(-2px); }
+    .socials a:hover svg { fill: #fff; }
+    .socials svg { width: 22px; height: 22px; fill: var(--ink); transition: fill .2s; }
 
     /* ---------- Nav ---------- */
-    .nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav {
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+    }
     .nav__inner { display: flex; align-items: center; gap: 8px; min-height: 64px; overflow-x: auto; }
     .nav a {
       white-space: nowrap; padding: 8px 12px; border-radius: 8px;
-      font-size: 15px; font-weight: 500; color: var(--ink);
+      font-size: var(--fs-sm); font-weight: 500; color: var(--ink);
       display: inline-flex; align-items: center; gap: 4px;
+      position: relative;
     }
-    .nav a:hover { background: var(--bg-soft); }
+    .nav a::after {
+      content: ""; position: absolute; left: 12px; right: 12px; bottom: 4px;
+      height: 2px; border-radius: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+    }
+    .nav a:hover { color: var(--accent); }
+    .nav a:hover::after { transform: scaleX(1); }
     .nav__search {
       margin-left: auto; display: flex; align-items: center; gap: 8px;
       border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px;
       color: var(--muted); font-size: 14px; background: #fff; white-space: nowrap;
+      cursor: pointer; transition: border-color .2s, color .2s;
     }
+    .nav__search:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ---------- Director ---------- */
     .director { padding: 48px 0 8px; }
@@ -82,15 +159,16 @@
     .director__photo {
       width: 240px; height: 240px; border-radius: 50%;
       object-fit: cover; border: 6px solid #fff;
-      box-shadow: 0 8px 30px rgba(55,73,87,.18);
+      box-shadow: var(--shadow-md);
     }
     .director__info { flex: 1 1 320px; }
-    .director__name { font-size: 28px; font-weight: 700; }
-    .director__role { color: var(--muted); margin-top: 6px; font-size: 16px; }
+    .director__name { font-size: var(--fs-2xl); font-weight: 700; letter-spacing: -.01em; }
+    .director__role { color: var(--muted); margin-top: 6px; font-size: var(--fs-base); }
     .director__link {
       display: inline-block; margin-top: 16px; font-weight: 600;
       color: var(--accent); border-bottom: 1px solid currentColor;
     }
+    .director__link:hover { color: var(--accent-dark); }
 
     /* ---------- Hero ---------- */
     .hero { padding: 40px 0 64px; }
@@ -99,147 +177,195 @@
       align-items: center;
     }
     .hero__tag {
-      display: inline-block; font-size: 13px; font-weight: 600;
+      display: inline-block; font-size: var(--fs-xs); font-weight: 600;
       text-transform: uppercase; letter-spacing: .08em;
-      color: var(--accent); background: rgba(77,76,255,.08);
+      color: var(--accent); background: var(--accent-soft);
       padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
     }
-    .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; font-weight: 800; }
+    .hero h2 { font-size: var(--fs-3xl); line-height: 1.15; font-weight: 800; letter-spacing: -.02em; }
     .hero p { margin-top: 16px; color: var(--muted); font-size: 17px; max-width: 52ch; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       background: var(--accent); color: #fff; border: none; cursor: pointer;
       font: inherit; font-weight: 600; border-radius: 10px;
-      padding: 13px 24px; transition: filter .2s;
+      padding: 13px 24px;
+      box-shadow: 0 6px 18px rgba(77, 76, 255, .28);
+      transition: background .2s, transform .2s, box-shadow .2s;
     }
-    .btn:hover { filter: brightness(1.12); }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(77, 76, 255, .34); }
+    .btn:active { transform: translateY(0); }
     .hero__actions { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); box-shadow: none; }
+    .btn--ghost:hover { background: var(--bg-soft); color: var(--accent); border-color: var(--accent); box-shadow: none; transform: none; }
     .hero__quote {
       margin-top: 32px; padding-left: 20px; border-left: 3px solid var(--accent);
-      color: var(--muted); font-size: 15px;
+      color: var(--muted); font-size: var(--fs-sm); font-style: italic;
     }
     .hero__image {
       width: 100%; aspect-ratio: 600/640; object-fit: cover;
       border-radius: var(--radius);
-      box-shadow: 0 20px 50px rgba(55,73,87,.2);
+      box-shadow: var(--shadow-lg);
     }
 
     /* ---------- Sections ---------- */
-    section.block { padding: 32px 0; }
-    .block__title { font-size: 26px; font-weight: 800; margin-bottom: 24px; }
+    section.block { padding: var(--section-y) 0; }
+    .block__title {
+      font-size: var(--fs-xl); font-weight: 800; margin-bottom: 24px;
+      letter-spacing: -.01em; position: relative; padding-left: 16px;
+    }
+    .block__title::before {
+      content: ""; position: absolute; left: 0; top: 6px; bottom: 6px;
+      width: 5px; border-radius: 5px; background: var(--accent);
+    }
 
     /* My school */
     .panel {
-      background: var(--bg-soft); border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--bg-soft), var(--bg-softer));
+      border-radius: var(--radius);
       padding: 40px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
     }
     .panel__text { flex: 1 1 380px; }
-    .panel__text h2 { font-size: 26px; font-weight: 800; }
+    .panel__text h2 { font-size: var(--fs-xl); font-weight: 800; }
     .panel__text p { margin-top: 12px; color: var(--muted); }
     .panel__actions { margin-top: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .linklike { font-weight: 600; color: var(--ink); border-bottom: 1px dashed var(--muted); }
+    .linklike:hover { color: var(--accent); border-bottom-color: var(--accent); }
     .panel__art { flex: 0 0 287px; display: grid; place-items: center; }
     .panel__art img { width: 287px; height: 245px; object-fit: contain; }
 
     /* Quick links */
-    .links-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+    .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
     .links-grid a {
       background: var(--bg-soft); border-radius: var(--radius);
-      padding: 20px 24px; font-weight: 600; font-size: 15px;
+      padding: 20px 24px; font-weight: 600; font-size: var(--fs-sm);
       min-height: 124px; display: flex; align-items: center;
-      transition: background .2s, transform .2s;
+      border: 1px solid transparent;
+      transition: background .2s, border-color .2s, transform .2s, color .2s;
     }
-    .links-grid a:hover { background: #e2e8f0; transform: translateY(-2px); }
+    .links-grid a:hover {
+      background: #fff; border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px); box-shadow: var(--shadow-sm);
+    }
 
     /* BUS.GOV.RU */
     .busgov { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-    .busgov__logo { font-size: 22px; font-weight: 800; color: #d52c27; letter-spacing: .02em; }
-    .busgov__logo span { color: #227cc1; }
+    .busgov__logo { font-size: var(--fs-lg); font-weight: 800; color: var(--danger); letter-spacing: .02em; }
+    .busgov__logo span { color: var(--info); }
     .busgov p { flex: 1 1 320px; color: var(--muted); }
 
     /* Site banners */
-    .site-banners { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .site-banners { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--gap); }
     .site-banner {
       position: relative; border-radius: var(--radius); overflow: hidden;
       aspect-ratio: 400/205; display: flex; align-items: flex-end;
+      box-shadow: var(--shadow-sm);
     }
-    .site-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .site-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .site-banner:hover img { transform: scale(1.05); }
     .site-banner__label {
       position: relative; z-index: 1; width: 100%; padding: 14px 20px;
-      background: linear-gradient(transparent, rgba(23,37,48,.85));
-      color: #fff; font-weight: 700; font-size: 18px;
+      background: linear-gradient(transparent, rgba(23, 37, 48, .85));
+      color: #fff; font-weight: 700; font-size: var(--fs-md);
     }
 
     /* Hotline cards */
-    .hotlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .hotlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--gap); }
     .hotline {
       background: #fff; border: 1px solid var(--border); border-radius: 16px;
       padding: 20px; display: flex; flex-direction: column; gap: 8px;
-      box-shadow: 0 4px 14px rgba(55,73,87,.06);
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
     }
-    .hotline__phone { font-size: 20px; font-weight: 800; color: var(--accent); }
+    .hotline:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+    .hotline__phone { font-size: var(--fs-lg); font-weight: 800; color: var(--accent); }
+    .hotline__phone:hover { color: var(--accent-dark); }
     .hotline__desc { font-size: 13.5px; color: var(--muted); }
 
     /* News */
-    .news { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .news { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--gap); }
     .news__card {
-      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
       overflow: hidden; display: flex; flex-direction: column;
-      transition: box-shadow .2s, transform .2s;
+      transition: box-shadow .25s, transform .25s;
     }
-    .news__card:hover { box-shadow: 0 12px 28px rgba(55,73,87,.14); transform: translateY(-3px); }
-    .news__card img { aspect-ratio: 2/1; object-fit: cover; width: 100%; }
+    .news__card:hover { box-shadow: 0 12px 28px rgba(55, 73, 87, .14); transform: translateY(-3px); }
+    .news__card img { aspect-ratio: 2/1; object-fit: cover; width: 100%; transition: transform .4s ease; }
+    .news__card:hover img { transform: scale(1.04); }
     .news__card time { padding: 12px 16px 0; font-size: 12px; color: var(--muted); }
-    .news__card h3 { padding: 6px 16px 16px; font-size: 15px; font-weight: 600; }
+    .news__card h3 { padding: 6px 16px 16px; font-size: var(--fs-sm); font-weight: 600; }
+    .news__card:hover h3 { color: var(--accent); }
 
     /* Video */
-    .video { position: relative; border-radius: var(--radius); overflow: hidden; }
+    .video { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
     .video img { width: 100%; aspect-ratio: 1240/736; object-fit: cover; }
+    .video::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(23, 37, 48, .12), rgba(23, 37, 48, .45));
+      pointer-events: none;
+    }
     .video__play {
       position: absolute; inset: 0; margin: auto; width: 88px; height: 88px;
-      border-radius: 50%; background: rgba(255,255,255,.92); border: none; cursor: pointer;
-      display: grid; place-items: center; transition: transform .2s;
+      border-radius: 50%; background: rgba(255, 255, 255, .92); border: none; cursor: pointer;
+      display: grid; place-items: center; transition: transform .2s, background .2s;
+      z-index: 1;
     }
-    .video__play:hover { transform: scale(1.08); }
+    .video__play:hover { transform: scale(1.08); background: #fff; }
     .video__play svg { width: 34px; height: 34px; fill: var(--ink); margin-left: 4px; }
-    .video__cta { position: absolute; right: 24px; bottom: 24px; }
+    .video__cta { position: absolute; right: 24px; bottom: 24px; z-index: 1; }
 
     /* Footer */
-    footer { background: var(--ink); color: #fff; margin-top: 64px; }
+    footer { background: var(--ink-deep); color: #fff; margin-top: 64px; }
     .footer__grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 32px; padding: 48px 0 32px;
     }
-    .footer__col h4 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: #a8b6c2; margin-bottom: 14px; }
+    .footer__col h4 { font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .06em; color: #a8b6c2; margin-bottom: 14px; }
     .footer__col ul { list-style: none; display: grid; gap: 8px; }
-    .footer__col a { font-size: 15px; opacity: .9; }
-    .footer__col a:hover { opacity: 1; text-decoration: underline; }
-    .footer__mail { font-size: 17px; font-weight: 600; }
-    .footer__phone { font-size: 22px; font-weight: 800; margin-top: 8px; display: block; }
+    .footer__col a { font-size: var(--fs-sm); opacity: .9; }
+    .footer__col a:hover { opacity: 1; color: var(--gold); text-decoration: underline; }
+    .footer__mail { font-size: var(--fs-md); font-weight: 600; }
+    .footer__phone { font-size: var(--fs-lg); font-weight: 800; margin-top: 8px; display: block; }
+    .footer__phone:hover { color: var(--gold); }
     .footer__bottom {
-      border-top: 1px solid rgba(255,255,255,.15);
+      border-top: 1px solid rgba(255, 255, 255, .15);
       display: flex; align-items: center; justify-content: space-between;
       gap: 16px; padding: 18px 0; font-size: 14px; color: #a8b6c2; flex-wrap: wrap;
     }
-    .footer__bottom .socials a { background: rgba(255,255,255,.1); border: none; }
+    .footer__bottom a:hover { color: #fff; }
+    .footer__bottom .socials a { background: rgba(255, 255, 255, .1); border: none; }
     .footer__bottom .socials svg { fill: #fff; }
+    .footer__bottom .socials a:hover { background: var(--accent); }
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1024px) {
       .hero__grid { grid-template-columns: 1fr; }
       .hero__image { aspect-ratio: 16/10; }
       .topbar__contacts { display: none; }
+      :root { --section-y: 24px; }
     }
     @media (max-width: 640px) {
       .panel { padding: 24px; }
       .director__card { gap: 24px; }
-      .director__photo { width: 160px; height: 160px; }
+      .director__photo { width: 160px; height: 160px; border-width: 4px; }
+      .director__name { font-size: var(--fs-xl); }
+      .block__title { font-size: var(--fs-lg); }
+      .links-grid a { min-height: 96px; padding: 16px 18px; }
       .video__cta { position: static; margin-top: 16px; display: inline-flex; }
+      .footer__bottom { justify-content: center; text-align: center; }
     }
+
+    /* ---------- Skip link ---------- */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--accent); color: #fff; padding: 12px 20px; border-radius: 0 0 10px 0;
+      font-weight: 600;
+    }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <!-- Шапка -->
   <header class="topbar">
@@ -274,7 +400,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main">
     <!-- Директор -->
     <section class="director">
       <div class="container director__card">
@@ -292,7 +418,7 @@
       <div class="container hero__grid">
         <div>
           <span class="hero__tag">Гимназия №1 им. Г.А. Федорюка</span>
-          <h1>Открываем дорогу к знаниям и будущему</h1>
+          <h2>Открываем дорогу к знаниям и будущему</h2>
           <p>Современное образование, сильные педагоги и забота о каждом ученике. Присоединяйтесь к школьной жизни гимназии.</p>
           <div class="hero__actions">
             <a class="btn" href="#">Записаться в гимназию</a>
@@ -305,7 +431,7 @@
     </section>
 
     <!-- Госуслуги Моя школа -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <div class="panel">
           <div class="panel__text">
@@ -331,7 +457,7 @@
     </section>
 
     <!-- Быстрые ссылки -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <div class="links-grid">
           <a href="#">Набор в образовательную организацию и условия приёма</a>
@@ -346,7 +472,7 @@
     </section>
 
     <!-- BUS.GOV.RU -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <div class="panel busgov">
           <div class="busgov__logo">госу<span>слуги</span></div>
@@ -357,7 +483,7 @@
     </section>
 
     <!-- Баннеры разделов сайта -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container site-banners">
         <a class="site-banner" href="#">
           <img src="/img/banner-letopis.jpg" alt="" loading="lazy" />
@@ -375,7 +501,7 @@
     </section>
 
     <!-- Горячие линии -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <h2 class="block__title">Горячие линии</h2>
         <div class="hotlines">
@@ -400,7 +526,7 @@
     </section>
 
     <!-- Наши приоритеты / новости -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <h2 class="block__title">Наши приоритеты</h2>
         <div class="news">
@@ -429,7 +555,7 @@
     </section>
 
     <!-- Видео -->
-    <section class="block">
+    <section class="block reveal">
       <div class="container">
         <div class="video">
           <img src="/img/video.jpg" alt="Видео о гимназии" loading="lazy" />
@@ -484,5 +610,19 @@
     </div>
   </footer>
 
+
+  <script>
+    // Плавное появление секций при прокрутке (уважает prefers-reduced-motion)
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
