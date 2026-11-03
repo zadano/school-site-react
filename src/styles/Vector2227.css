@@ -1,0 +1,14 @@
+
+.scroll-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.Pixso-vector-2_227 {
+  width: 100%;
+  height: 4224px;
+  background-image: url(@/assets/images/httpsgymnorfaeduchelru.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

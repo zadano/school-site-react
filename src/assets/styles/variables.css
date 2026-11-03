@@ -1,0 +1,54 @@
+:root, 
+[data-collection-6495-541-mode="mode-1"] {
+  /* Mode 1 */
+  --color-neutral-darkest: rgba(0, 0, 0, 1);
+  --color-white: rgba(255, 255, 255, 1);
+}
+
+:root, 
+[data-collection-197-527-mode="value"] {
+  /* Value */
+  --white-400: rgba(255, 255, 255, 0.4);
+  --gray-400: rgba(179, 179, 179, 1);
+  --brand-600: rgba(68, 68, 68, 1);
+  --slate-400: rgba(178, 178, 178, 1);
+  --gray-700: rgba(56, 56, 56, 1);
+  --gray-600: rgba(68, 68, 68, 1);
+  --gray-300: rgba(217, 217, 217, 1);
+  --white-1000: rgba(255, 255, 255, 1);
+  --gray-900: rgba(30, 30, 30, 1);
+}
+
+:root, 
+[data-collection-5613-369-mode="sds-light"] {
+  /* SDS Light */
+  --text-default-tertiary: var(--gray-400);
+  --text-disabled-on-disabled: var(--gray-400);
+  --border-disabled-secondary: var(--slate-400);
+  --background-disabled-default: var(--gray-300);
+  --text-default-default: var(--gray-900);
+  --background-default-default: var(--white-1000);
+  --border-default-default: var(--gray-300);
+}
+
+[data-collection-5613-369-mode="sds-dark"] {
+  /* SDS Dark */
+  --text-default-tertiary: var(--white-400);
+  --text-disabled-on-disabled: var(--gray-400);
+  --border-disabled-secondary: var(--brand-600);
+  --background-disabled-default: var(--gray-700);
+  --text-default-default: var(--white-1000);
+  --background-default-default: var(--gray-900);
+  --border-default-default: var(--gray-600);
+}
+
+:root, 
+[data-collection-348-243-mode="default"] {
+  /* Default */
+  --radius-full: 9999px;
+  --stroke-border: 1px;
+  --space-300: 12px;
+  --space-400: 16px;
+  --space-200: 8px;
+}
+

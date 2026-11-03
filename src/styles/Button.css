@@ -1,0 +1,194 @@
+
+.Pixso-symbol-2_84 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px;
+  z-index: 1;
+  background-color: var(--color-neutral-darkest);
+}
+
+.stroke-wrapper-2_84,.stroke-wrapper-2_86,.stroke-wrapper-2_89,.stroke-wrapper-2_92,.stroke-wrapper-2_94,.stroke-wrapper-2_96,.stroke-wrapper-2_99,.stroke-wrapper-2_102,.stroke-wrapper-2_104,.stroke-wrapper-2_106,.stroke-wrapper-2_109,.stroke-wrapper-2_112,.stroke-wrapper-2_114,.stroke-wrapper-2_116,.stroke-wrapper-2_119,.stroke-wrapper-2_122,.stroke-wrapper-2_154,.stroke-wrapper-2_156,.stroke-wrapper-2_159,.stroke-wrapper-2_162,.stroke-wrapper-2_164,.stroke-wrapper-2_166,.stroke-wrapper-2_169,.stroke-wrapper-2_172,.stroke-wrapper-2_174,.stroke-wrapper-2_176,.stroke-wrapper-2_179,.stroke-wrapper-2_182,.stroke-wrapper-2_184,.stroke-wrapper-2_186,.stroke-wrapper-2_189,.stroke-wrapper-2_192 {
+  isolation: isolate;
+}
+
+.stroke-2_84,.stroke-2_86,.stroke-2_89,.stroke-2_92,.stroke-2_94,.stroke-2_96,.stroke-2_99,.stroke-2_102 {
+  position: absolute;
+  inset: -1px -1px -1px -1px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  z-index: 0;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: var(--color-neutral-darkest);
+}
+
+.Pixso-paragraph-2_85,.Pixso-paragraph-2_88,.Pixso-paragraph-2_90,.Pixso-paragraph-2_95,.Pixso-paragraph-2_98,.Pixso-paragraph-2_100,.Pixso-paragraph-2_175,.Pixso-paragraph-2_178,.Pixso-paragraph-2_180,.Pixso-paragraph-2_185,.Pixso-paragraph-2_188,.Pixso-paragraph-2_190,.Pixso-paragraph-2_195,.Pixso-paragraph-2_198,.Pixso-paragraph-2_200,.Pixso-paragraph-2_205,.Pixso-paragraph-2_208,.Pixso-paragraph-2_210,.Pixso-paragraph-2_215,.Pixso-paragraph-2_218,.Pixso-paragraph-2_220 {
+  color: var(--color-white);
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.Pixso-symbol-2_86,.Pixso-symbol-2_89 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px;
+  z-index: 1;
+  background-color: var(--color-neutral-darkest);
+}
+
+.Pixso-instance-2_87,.Pixso-instance-2_91,.Pixso-instance-2_93,.Pixso-instance-2_97,.Pixso-instance-2_101,.Pixso-instance-2_103,.Pixso-instance-2_107,.Pixso-instance-2_111,.Pixso-instance-2_113,.Pixso-instance-2_117,.Pixso-instance-2_121,.Pixso-instance-2_123,.Pixso-instance-2_127,.Pixso-instance-2_131,.Pixso-instance-2_133,.Pixso-instance-2_137,.Pixso-instance-2_141,.Pixso-instance-2_143,.Pixso-instance-2_147,.Pixso-instance-2_151,.Pixso-instance-2_153,.Pixso-instance-2_157,.Pixso-instance-2_161,.Pixso-instance-2_163,.Pixso-instance-2_167,.Pixso-instance-2_171,.Pixso-instance-2_173,.Pixso-instance-2_177,.Pixso-instance-2_181,.Pixso-instance-2_183,.Pixso-instance-2_187,.Pixso-instance-2_191,.Pixso-instance-2_193,.Pixso-instance-2_197,.Pixso-instance-2_201,.Pixso-instance-2_203,.Pixso-instance-2_207,.Pixso-instance-2_211,.Pixso-instance-2_213,.Pixso-instance-2_217,.Pixso-instance-2_221,.Pixso-instance-2_223 {
+  width: 24px;
+  height: 24px;
+}
+
+.Pixso-symbol-2_92,.Pixso-symbol-2_94,.Pixso-symbol-2_96,.Pixso-symbol-2_99,.Pixso-symbol-2_102 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--color-neutral-darkest);
+}
+
+.Pixso-symbol-2_92,.Pixso-symbol-2_112,.Pixso-symbol-2_182,.Pixso-symbol-2_162 {
+  gap: 12px;
+  padding: 12px 12px 12px 12px;
+}
+
+.Pixso-symbol-2_94,.Pixso-symbol-2_114,.Pixso-symbol-2_184,.Pixso-symbol-2_134,.Pixso-symbol-2_204,.Pixso-symbol-2_164 {
+  gap: 8px;
+  padding: 8px 20px 8px 20px;
+}
+
+.Pixso-symbol-2_96,.Pixso-symbol-2_99,.Pixso-symbol-2_116,.Pixso-symbol-2_119,.Pixso-symbol-2_186,.Pixso-symbol-2_189,.Pixso-symbol-2_136,.Pixso-symbol-2_139,.Pixso-symbol-2_206,.Pixso-symbol-2_209,.Pixso-symbol-2_166,.Pixso-symbol-2_169 {
+  gap: 12px;
+  padding: 8px 20px 8px 20px;
+}
+
+.Pixso-symbol-2_102,.Pixso-symbol-2_122,.Pixso-symbol-2_192,.Pixso-symbol-2_142,.Pixso-symbol-2_212,.Pixso-symbol-2_172 {
+  gap: 12px;
+  padding: 8px 8px 8px 8px;
+}
+
+.Pixso-symbol-2_104,.Pixso-symbol-2_174 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 12px 24px;
+  z-index: 1;
+}
+
+.stroke-2_104,.stroke-2_106,.stroke-2_109,.stroke-2_112,.stroke-2_114,.stroke-2_116,.stroke-2_119,.stroke-2_122 {
+  position: absolute;
+  inset: -1px -1px -1px -1px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  z-index: 0;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: var(--color-neutral-darkest);
+}
+
+.Pixso-paragraph-2_105,.Pixso-paragraph-2_108,.Pixso-paragraph-2_110,.Pixso-paragraph-2_115,.Pixso-paragraph-2_118,.Pixso-paragraph-2_120,.Pixso-paragraph-2_125,.Pixso-paragraph-2_128,.Pixso-paragraph-2_130,.Pixso-paragraph-2_135,.Pixso-paragraph-2_138,.Pixso-paragraph-2_140,.Pixso-paragraph-2_145,.Pixso-paragraph-2_148,.Pixso-paragraph-2_150,.Pixso-paragraph-2_155,.Pixso-paragraph-2_158,.Pixso-paragraph-2_160,.Pixso-paragraph-2_165,.Pixso-paragraph-2_168,.Pixso-paragraph-2_170 {
+  color: var(--color-neutral-darkest);
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.Pixso-symbol-2_106,.Pixso-symbol-2_109,.Pixso-symbol-2_176,.Pixso-symbol-2_179,.Pixso-symbol-2_112,.Pixso-symbol-2_182,.Pixso-symbol-2_114,.Pixso-symbol-2_184,.Pixso-symbol-2_116,.Pixso-symbol-2_119,.Pixso-symbol-2_186,.Pixso-symbol-2_189,.Pixso-symbol-2_122,.Pixso-symbol-2_192 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.Pixso-symbol-2_106,.Pixso-symbol-2_109,.Pixso-symbol-2_176,.Pixso-symbol-2_179,.Pixso-symbol-2_126,.Pixso-symbol-2_129,.Pixso-symbol-2_196,.Pixso-symbol-2_199,.Pixso-symbol-2_156,.Pixso-symbol-2_159 {
+  gap: 12px;
+  padding: 12px 24px 12px 24px;
+}
+
+.Pixso-symbol-2_124,.Pixso-symbol-2_194,.Pixso-symbol-2_126,.Pixso-symbol-2_129,.Pixso-symbol-2_196,.Pixso-symbol-2_199,.Pixso-symbol-2_132,.Pixso-symbol-2_202,.Pixso-symbol-2_134,.Pixso-symbol-2_204,.Pixso-symbol-2_136,.Pixso-symbol-2_139,.Pixso-symbol-2_206,.Pixso-symbol-2_209,.Pixso-symbol-2_142,.Pixso-symbol-2_212 {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pixso-symbol-2_124,.Pixso-symbol-2_194 {
+  gap: 8px;
+  padding: 12px 24px 12px 24px;
+}
+
+.Pixso-symbol-2_132,.Pixso-symbol-2_202 {
+  gap: 8px;
+  padding: 12px 12px 12px 12px;
+}
+
+.Pixso-symbol-2_144,.Pixso-symbol-2_146,.Pixso-symbol-2_149,.Pixso-symbol-2_152,.Pixso-symbol-2_214,.Pixso-symbol-2_216,.Pixso-symbol-2_219,.Pixso-symbol-2_222,.Pixso-symbol-2_154 {
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pixso-symbol-2_154 {
+  width: 100%;
+  height: 100%;
+  padding: 12px 24px 12px 24px;
+  z-index: 1;
+  background-color: var(--color-white);
+}
+
+.stroke-2_154,.stroke-2_156,.stroke-2_159,.stroke-2_162,.stroke-2_164,.stroke-2_166,.stroke-2_169,.stroke-2_172 {
+  position: absolute;
+  inset: -1px -1px -1px -1px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  z-index: 0;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: var(--color-white);
+}
+
+.Pixso-symbol-2_156,.Pixso-symbol-2_159,.Pixso-symbol-2_162,.Pixso-symbol-2_164,.Pixso-symbol-2_166,.Pixso-symbol-2_169,.Pixso-symbol-2_172 {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--color-white);
+}
+
+.stroke-2_174,.stroke-2_176,.stroke-2_179,.stroke-2_182,.stroke-2_184,.stroke-2_186,.stroke-2_189,.stroke-2_192 {
+  position: absolute;
+  inset: -1px -1px -1px -1px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  z-index: 0;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: var(--color-white);
+}
+
+.component-2_83 {
+  width: fit-content;
+  height: fit-content;
+}

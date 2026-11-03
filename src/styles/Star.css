@@ -1,0 +1,24 @@
+
+.Pixso-symbol-2_12 {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.Pixso-vector-2_13 {
+  width: 93.34%;
+  height: 89.26%;
+  background-image: url(@/assets/images/Icon1.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 8.33%;
+  right: -1.67%;
+  top: 8.33%;
+  bottom: 2.41%;
+}
+
+.component-2_12 {
+  width: fit-content;
+  height: fit-content;
+}
