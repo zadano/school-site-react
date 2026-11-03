@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Гимназия №1 им. Г.А. Федорюка — официальный сайт. Образование, новости, преподаватели и ученики." />
+  <title>Гимназия №1 им. Г.А. Федорюка</title>
+  <link rel="preload" href="/src/assets/fonts/Inter_1.ttf" as="font" type="font/ttf" crossorigin />
+  <style>
+    @font-face {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url("/src/assets/fonts/Inter_1.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("/src/assets/fonts/Roboto-Regular_1.ttf") format("truetype");
+    }
+    :root {
+      --ink: #374957;
+      --muted: #6b7a88;
+      --accent: #4d4cff;
+      --bg-soft: #f1f5f9;
+      --border: #e2e8f0;
+      --radius: 24px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Header ---------- */
+    .topbar { background: var(--bg-soft); }
+    .topbar__inner {
+      display: flex; align-items: center; gap: 24px;
+      min-height: 112px;
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand img { width: 80px; height: 82px; object-fit: contain; }
+    .brand__name { font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+    .topbar__contacts { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+    .topbar__mail { font-size: 15px; font-weight: 500; }
+    .socials { display: flex; gap: 12px; }
+    .socials a {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #fff; border: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .socials a:hover { background: #e2e8f0; }
+    .socials svg { width: 22px; height: 22px; fill: var(--ink); }
+
+    /* ---------- Nav ---------- */
+    .nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav__inner { display: flex; align-items: center; gap: 8px; min-height: 64px; overflow-x: auto; }
+    .nav a {
+      white-space: nowrap; padding: 8px 12px; border-radius: 8px;
+      font-size: 15px; font-weight: 500; color: var(--ink);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .nav a:hover { background: var(--bg-soft); }
+    .nav__search {
+      margin-left: auto; display: flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px;
+      color: var(--muted); font-size: 14px; background: #fff; white-space: nowrap;
+    }
+
+    /* ---------- Director ---------- */
+    .director { padding: 48px 0 8px; }
+    .director__card { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .director__photo {
+      width: 240px; height: 240px; border-radius: 50%;
+      object-fit: cover; border: 6px solid #fff;
+      box-shadow: 0 8px 30px rgba(55,73,87,.18);
+    }
+    .director__info { flex: 1 1 320px; }
+    .director__name { font-size: 28px; font-weight: 700; }
+    .director__role { color: var(--muted); margin-top: 6px; font-size: 16px; }
+    .director__link {
+      display: inline-block; margin-top: 16px; font-weight: 600;
+      color: var(--accent); border-bottom: 1px solid currentColor;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 40px 0 64px; }
+    .hero__grid {
+      display: grid; grid-template-columns: 1fr 600px; gap: 48px;
+      align-items: center;
+    }
+    .hero__tag {
+      display: inline-block; font-size: 13px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--accent); background: rgba(77,76,255,.08);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; font-weight: 800; }
+    .hero p { margin-top: 16px; color: var(--muted); font-size: 17px; max-width: 52ch; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: #fff; border: none; cursor: pointer;
+      font: inherit; font-weight: 600; border-radius: 10px;
+      padding: 13px 24px; transition: filter .2s;
+    }
+    .btn:hover { filter: brightness(1.12); }
+    .hero__actions { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+    .hero__quote {
+      margin-top: 32px; padding-left: 20px; border-left: 3px solid var(--accent);
+      color: var(--muted); font-size: 15px;
+    }
+    .hero__image {
+      width: 100%; aspect-ratio: 600/640; object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(55,73,87,.2);
+    }
+
+    /* ---------- Sections ---------- */
+    section.block { padding: 32px 0; }
+    .block__title { font-size: 26px; font-weight: 800; margin-bottom: 24px; }
+
+    /* My school */
+    .panel {
+      background: var(--bg-soft); border-radius: var(--radius);
+      padding: 40px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
+    }
+    .panel__text { flex: 1 1 380px; }
+    .panel__text h2 { font-size: 26px; font-weight: 800; }
+    .panel__text p { margin-top: 12px; color: var(--muted); }
+    .panel__actions { margin-top: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .linklike { font-weight: 600; color: var(--ink); border-bottom: 1px dashed var(--muted); }
+    .panel__art { flex: 0 0 287px; display: grid; place-items: center; }
+    .panel__art img { width: 287px; height: 245px; object-fit: contain; }
+
+    /* Quick links */
+    .links-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+    .links-grid a {
+      background: var(--bg-soft); border-radius: var(--radius);
+      padding: 20px 24px; font-weight: 600; font-size: 15px;
+      min-height: 124px; display: flex; align-items: center;
+      transition: background .2s, transform .2s;
+    }
+    .links-grid a:hover { background: #e2e8f0; transform: translateY(-2px); }
+
+    /* BUS.GOV.RU */
+    .busgov { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .busgov__logo { font-size: 22px; font-weight: 800; color: #d52c27; letter-spacing: .02em; }
+    .busgov__logo span { color: #227cc1; }
+    .busgov p { flex: 1 1 320px; color: var(--muted); }
+
+    /* Site banners */
+    .site-banners { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .site-banner {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 400/205; display: flex; align-items: flex-end;
+    }
+    .site-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .site-banner__label {
+      position: relative; z-index: 1; width: 100%; padding: 14px 20px;
+      background: linear-gradient(transparent, rgba(23,37,48,.85));
+      color: #fff; font-weight: 700; font-size: 18px;
+    }
+
+    /* Hotline cards */
+    .hotlines { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .hotline {
+      background: #fff; border: 1px solid var(--border); border-radius: 16px;
+      padding: 20px; display: flex; flex-direction: column; gap: 8px;
+      box-shadow: 0 4px 14px rgba(55,73,87,.06);
+    }
+    .hotline__phone { font-size: 20px; font-weight: 800; color: var(--accent); }
+    .hotline__desc { font-size: 13.5px; color: var(--muted); }
+
+    /* News */
+    .news { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .news__card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .news__card:hover { box-shadow: 0 12px 28px rgba(55,73,87,.14); transform: translateY(-3px); }
+    .news__card img { aspect-ratio: 2/1; object-fit: cover; width: 100%; }
+    .news__card time { padding: 12px 16px 0; font-size: 12px; color: var(--muted); }
+    .news__card h3 { padding: 6px 16px 16px; font-size: 15px; font-weight: 600; }
+
+    /* Video */
+    .video { position: relative; border-radius: var(--radius); overflow: hidden; }
+    .video img { width: 100%; aspect-ratio: 1240/736; object-fit: cover; }
+    .video__play {
+      position: absolute; inset: 0; margin: auto; width: 88px; height: 88px;
+      border-radius: 50%; background: rgba(255,255,255,.92); border: none; cursor: pointer;
+      display: grid; place-items: center; transition: transform .2s;
+    }
+    .video__play:hover { transform: scale(1.08); }
+    .video__play svg { width: 34px; height: 34px; fill: var(--ink); margin-left: 4px; }
+    .video__cta { position: absolute; right: 24px; bottom: 24px; }
+
+    /* Footer */
+    footer { background: var(--ink); color: #fff; margin-top: 64px; }
+    .footer__grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px; padding: 48px 0 32px;
+    }
+    .footer__col h4 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: #a8b6c2; margin-bottom: 14px; }
+    .footer__col ul { list-style: none; display: grid; gap: 8px; }
+    .footer__col a { font-size: 15px; opacity: .9; }
+    .footer__col a:hover { opacity: 1; text-decoration: underline; }
+    .footer__mail { font-size: 17px; font-weight: 600; }
+    .footer__phone { font-size: 22px; font-weight: 800; margin-top: 8px; display: block; }
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 18px 0; font-size: 14px; color: #a8b6c2; flex-wrap: wrap;
+    }
+    .footer__bottom .socials a { background: rgba(255,255,255,.1); border: none; }
+    .footer__bottom .socials svg { fill: #fff; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__image { aspect-ratio: 16/10; }
+      .topbar__contacts { display: none; }
+    }
+    @media (max-width: 640px) {
+      .panel { padding: 24px; }
+      .director__card { gap: 24px; }
+      .director__photo { width: 160px; height: 160px; }
+      .video__cta { position: static; margin-top: 16px; display: inline-flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/">
+        <img src="/img/logo.png" alt="Логотип гимназии" width="80" height="82" />
+        <span class="brand__name">МОУ&nbsp;ГИМНАЗИЯ</span>
+      </a>
+      <div class="topbar__contacts">
+        <a class="topbar__mail" href="mailto:gymnasia-orff@mail.ru">gymnasia-orff@mail.ru</a>
+        <div class="socials">
+          <a href="#" aria-label="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M12.9 17.1c-5.5 0-8.9-3.8-9-10h2.8c.1 4.6 2.2 6.5 3.8 6.9V7.1h2.6v3.9c1.6-.2 3.2-2 3.8-3.9h2.6c-.7 2.3-2.3 4.1-3.6 4.9 1.3.7 3.1 2.3 3.8 5.1h-2.9c-.6-1.9-2.1-3.4-4-3.6v3.6h-.5z"/></svg></a>
+          <a href="#" aria-label="Телеграм"><svg viewBox="0 0 24 24"><path d="M21.5 4.3 2.9 11.4c-1 .4-1 1 .1 1.3l4.6 1.4 1.8 5.4c.2.6.4.7 1 .3l2.6-1.9 4.5 3.4c.8.5 1.3.2 1.5-.7L23 5.5c.2-1-.4-1.4-1.5-1.2zM9.6 14l8.2-5.1-6.8 6.1-.3 3.4L9.6 14z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Меню -->
+  <nav class="nav" aria-label="Главное меню">
+    <div class="container nav__inner">
+      <a href="#">О нас</a>
+      <a href="#">Деятельность <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+      <a href="#">Проекты</a>
+      <a href="#">Аттестация</a>
+      <a href="#">Коллектив</a>
+      <a href="#">Условия</a>
+      <a href="#">Финансирование</a>
+      <a href="#">Документы</a>
+      <a href="#">Контакты</a>
+      <span class="nav__search">Поиск <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Директор -->
+    <section class="director">
+      <div class="container director__card">
+        <img class="director__photo" src="/img/director.jpg" alt="Елагина Лариса Михайловна" />
+        <div class="director__info">
+          <h1 class="director__name">Елагина Лариса Михайловна</h1>
+          <p class="director__role">директор образовательного учреждения</p>
+          <a class="director__link" href="#">Отзывы и предложения</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Герой-блок -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="hero__tag">Гимназия №1 им. Г.А. Федорюка</span>
+          <h1>Открываем дорогу к знаниям и будущему</h1>
+          <p>Современное образование, сильные педагоги и забота о каждом ученике. Присоединяйтесь к школьной жизни гимназии.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#">Записаться в гимназию</a>
+            <a class="btn btn--ghost" href="#">Подробнее о нас</a>
+          </div>
+          <blockquote class="hero__quote">«Школа — это не только уроки, но и люди, события и традиции, которые остаются навсегда.»</blockquote>
+        </div>
+        <img class="hero__image" src="/img/hero.jpg" alt="Ученики гимназии" />
+      </div>
+    </section>
+
+    <!-- Госуслуги Моя школа -->
+    <section class="block">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__text">
+            <h2>«Госуслуги Моя школа»</h2>
+            <p>Вся информация о&nbsp;школьной жизни&nbsp;— в&nbsp;одном сервисе</p>
+            <div class="panel__actions">
+              <a class="btn" href="#">Скачать</a>
+              <a class="linklike" href="#">Перейти на сайт сервиса</a>
+            </div>
+          </div>
+          <div class="panel__art" aria-hidden="true">
+            <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+              <rect x="30" y="30" width="160" height="130" rx="14" fill="#fff" stroke="#374957" stroke-width="4"/>
+              <path d="M110 20 30 60h160l-80-40Z" fill="#ffd700" stroke="#374957" stroke-width="4"/>
+              <rect x="60" y="80" width="26" height="50" fill="#bfdfff"/>
+              <rect x="98" y="80" width="26" height="50" fill="#ffb88a"/>
+              <rect x="136" y="80" width="26" height="50" fill="#ffcb39"/>
+              <path d="M50 160h120" stroke="#374957" stroke-width="6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Быстрые ссылки -->
+    <section class="block">
+      <div class="container">
+        <div class="links-grid">
+          <a href="#">Набор в образовательную организацию и условия приёма</a>
+          <a href="#">Противодействие коррупции</a>
+          <a href="#">Вакантные места для приема (перевода) обучающихся</a>
+          <a href="#">Спорт</a>
+          <a href="#">Режим работы</a>
+          <a href="#">Единая модель профориентации</a>
+          <a href="#">Вакантные места для приема (перевода) обучающихся</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUS.GOV.RU -->
+    <section class="block">
+      <div class="container">
+        <div class="panel busgov">
+          <div class="busgov__logo">госу<span>слуги</span></div>
+          <p>Электронные сервисы для учеников и родителей: дневник, записи, документы и уведомления — быстро и удобно.</p>
+          <a class="btn" href="#">Перейти</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Баннеры разделов сайта -->
+    <section class="block">
+      <div class="container site-banners">
+        <a class="site-banner" href="#">
+          <img src="/img/banner-letopis.jpg" alt="" loading="lazy" />
+          <span class="site-banner__label">Летопись</span>
+        </a>
+        <a class="site-banner" href="#">
+          <img src="/img/banner-pitanie.jpg" alt="" loading="lazy" />
+          <span class="site-banner__label">Питание</span>
+        </a>
+        <a class="site-banner" href="#">
+          <img src="/img/banner-max.jpg" alt="" loading="lazy" />
+          <span class="site-banner__label">Движение Первых</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Горячие линии -->
+    <section class="block">
+      <div class="container">
+        <h2 class="block__title">Горячие линии</h2>
+        <div class="hotlines">
+          <div class="hotline">
+            <a class="hotline__phone" href="tel:+73512636365">+7 (351) 263-63-65</a>
+            <p class="hotline__desc">Питание обучающихся. Горячая линия Министерства образования и науки Челябинской области</p>
+          </div>
+          <div class="hotline">
+            <a class="hotline__phone" href="tel:+73512632517">+7 (351) 263-25-17</a>
+            <p class="hotline__desc">ЕГЭ. Горячая линия Министерства образования и науки Челябинской области</p>
+          </div>
+          <div class="hotline">
+            <a class="hotline__phone" href="tel:+73512631815">+7 (351) 263-18-15</a>
+            <p class="hotline__desc">Запись детей в первый класс. Горячая линия Министерства образования и науки Челябинской области</p>
+          </div>
+          <div class="hotline">
+            <a class="hotline__phone" href="tel:+78002000122">+7 (800) 200-01-22</a>
+            <p class="hotline__desc">Телефон доверия для детей, подростков и их родителей</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Наши приоритеты / новости -->
+    <section class="block">
+      <div class="container">
+        <h2 class="block__title">Наши приоритеты</h2>
+        <div class="news">
+          <a class="news__card" href="#">
+            <img src="/img/news-1.jpg" alt="Почта доверия" loading="lazy" />
+            <time datetime="2025-01-09">09 января 2025</time>
+            <h3>Почта доверия</h3>
+          </a>
+          <a class="news__card" href="#">
+            <img src="/img/news-2.jpg" alt="Уполномоченный" loading="lazy" />
+            <time datetime="2025-02-27">27 февраля 2025</time>
+            <h3>Уполномоченный</h3>
+          </a>
+          <a class="news__card" href="#">
+            <img src="/img/news-3.jpg" alt="Всё для победы" loading="lazy" />
+            <time datetime="2024-12-28">28 декабря 2024</time>
+            <h3>Всё для победы</h3>
+          </a>
+          <a class="news__card" href="#">
+            <img src="/img/news-4.jpg" alt="Новые проекты: образование" loading="lazy" />
+            <time datetime="2025-01-10">10 января 2025</time>
+            <h3>Народные программы: Образование</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Видео -->
+    <section class="block">
+      <div class="container">
+        <div class="video">
+          <img src="/img/video.jpg" alt="Видео о гимназии" loading="lazy" />
+          <button class="video__play" type="button" aria-label="Смотреть видео">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <a class="btn video__cta" href="#">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffd700"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6 3.6 1.4-6.8L2.3 9.1l6.9-.8L12 2z"/></svg>
+            Вступить в Движение!
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h4>Разделы</h4>
+          <ul>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Деятельность</a></li>
+            <li><a href="#">Коллектив</a></li>
+            <li><a href="#">Документы</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ресурсы</h4>
+          <ul>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Проекты</a></li>
+            <li><a href="#">Спорт</a></li>
+            <li><a href="#">Условия обучения</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <a class="footer__mail" href="mailto:gymnasia-orff@mail.ru">gymnasia-orff@mail.ru</a>
+          <a class="footer__phone" href="tel:+73514222677">+7 (351) 422-26-77</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 МОУ Гимназия №1 им. Г.А. Федорюка</span>
+        <div class="socials">
+          <a href="#" aria-label="ВКонтакте"><svg viewBox="0 0 24 24"><path d="M12.9 17.1c-5.5 0-8.9-3.8-9-10h2.8c.1 4.6 2.2 6.5 3.8 6.9V7.1h2.6v3.9c1.6-.2 3.2-2 3.8-3.9h2.6c-.7 2.3-2.3 4.1-3.6 4.9 1.3.7 3.1 2.3 3.8 5.1h-2.9c-.6-1.9-2.1-3.4-4-3.6v3.6h-.5z"/></svg></a>
+          <a href="#" aria-label="Телеграм"><svg viewBox="0 0 24 24"><path d="M21.5 4.3 2.9 11.4c-1 .4-1 1 .1 1.3l4.6 1.4 1.8 5.4c.2.6.4.7 1 .3l2.6-1.9 4.5 3.4c.8.5 1.3.2 1.5-.7L23 5.5c.2-1-.4-1.4-1.5-1.2zM9.6 14l8.2-5.1-6.8 6.1-.3 3.4L9.6 14z"/></svg></a>
+        </div>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
