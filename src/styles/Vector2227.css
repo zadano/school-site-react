@@ -1,14 +1,22 @@
-
 .scroll-container {
-  height: 100%;
   width: 100%;
-  overflow: auto;
 }
 
 .Pixso-vector-2_227 {
-  width: 100%;
-  height: 4224px;
+  /* Макет спроектирован на ширину 1440px — не растягиваем его на всю ширину
+     окна, иначе искажаются пропорции (background-size: 100% 100%) */
+  width: min(100%, 1440px);
+  aspect-ratio: 1440 / 4224;
+  margin: 0 auto;
   background-image: url(@/assets/images/httpsgymnorfaeduchelru.svg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+/* На узких экранах фиксированная высота макета не подходит —
+     height задаём через aspect-ratio, поэтому дополнительно страхуемся */
+@media (max-width: 480px) {
+  .Pixso-vector-2_227 {
+    aspect-ratio: 1440 / 4224;
+  }
 }

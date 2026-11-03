@@ -1,7 +1,6 @@
 import Relume from "@/components/Relume";
 import "@/styles/Button.css";
 interface ButtonProps {
-    instance_2399_86?: string;
     Alternate?: string;
     Iconposition?: string;
     Small?: string;
@@ -95,7 +94,6 @@ interface ButtonProps {
 }
 const Button = (props: ButtonProps) => {
     const {
-        instance_2399_86 = "Component_2_78",
         Alternate,
         Iconposition,
         Small,
